@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+<style>html, body, textarea { width: 100%; height: 100%; padding: 0; margin: 0; }</style>
+</head>
+<body>
+
+  <h1>Your uid (First letter of your name + '_id')</h1>
+  <form id="submit_form">
+    <input id="uid_input" value="k_id" placeholder=""></input>
+    <button type="submit">Get data</button>
+  </form>
+  <h2>Store your module data here</h2>
+  <textarea id="data_input" placeholder="paste here!"></textarea>
+
+  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script><script>
+    let uid_input = document.getElementById('uid_input');
+    let data_input = document.getElementById('data_input');
+    let submit_form = document.getElementById('submit_form');
+    let user_module = 'module_tj'
+
+    gun = Gun(['http://localhost:8080/gun']);
+
+    
+    
+    submit_form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      console.log('submit');
+      setup();
+      
+    });
+    let setup = () => {
+      let user_id = (!uid_input) ? 'default_id' : uid_input.value;
+      let module_data = gun.get(user_id).get(user_module);
+      module_data.on((data) => { data_input.value = data });
+      data_input.oninput = () => { module_data.put(data_input.value) };
+      
+    }
+
+    /*
+    company = gun.get('startup').put({
+      name: "hype",
+      profitable: false,
+      address: {
+        street: "123 Hipster Lane",
+        city: "San Francisco",
+        state: "CA",
+        country: "USA"
+      }
+    });
+    */
+
+  </script>
+  </body>
+</html>

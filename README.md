@@ -22,6 +22,5 @@ yarn start
 
 ## Resources
 
-[This site](https://dev.to/tirthpatel/deploy-node-ts-express-typescript-on-vercel-284h) helped get vercel and typescript set up
-
-[Express sample for GunDB](https://github.com/amark/gun/blob/master/examples/express.js)
+- [This site](https://dev.to/tirthpatel/deploy-node-ts-express-typescript-on-vercel-284h) helped get vercel and typescript set up
+- [Express sample for GunDB](https://github.com/amark/gun/blob/master/examples/express.js)

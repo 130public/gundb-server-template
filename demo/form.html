@@ -18,7 +18,16 @@
     let submit_form = document.getElementById('submit_form');
     let user_module = 'module_tj'
 
-    gun = Gun(['http://localhost:8080/gun']);
+    // Define server list
+    let defaultServers = ['http://localhost:8080/gun'];
+    let storedServers = localStorage.getItem('gunServers');
+
+    // Push defaults if nothing is stored
+    if(!storedServers) localStorage.setItem('gunServers',defaultServers);
+
+    // Load servers
+    let gunServers = localStorage.getItem('gunServers');
+    gun = Gun(gunServers);
 
     
     

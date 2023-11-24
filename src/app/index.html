@@ -7,13 +7,13 @@
     <h1>Your GunDB portal</h1>
     <h2>Define your data stores</h2>
     <form id="storage_form">
-      <label>Your list of relays</label>
-      <input id="storage_input" value="{'servers':['http://localhost:8080/gun'}" placeholder=""></input>
+      <label>List of relays - <small>after updating, refresh page</small></label>
+      <input id="storage_input" value="" placeholder=""></input>
       <button type="submit">Update relay list</button>
     </form>
     <h2>View and manage data</h2>
     <form id="data_form">
-      <label>Enter you uid (First letter of your name + '_id')</label>
+      <label>Enter the data uid to retrieve</label>
       <input id="uid_input" value="k_id" placeholder=""></input>
       <button type="submit">Get data</button>
     </form>

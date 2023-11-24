@@ -1,5 +1,5 @@
 //DEFAULTS
-let defaultServers = {"servers":['http://localhost:8080/gun']};
+const defaultServers = ["http://localhost:8080/gun","http://192.168.69.420/gun"];
 
 //UPDATE LOCAL STORAGE
 let updateStore = (storeKey, data) => {
@@ -15,7 +15,7 @@ let readStore = (storeKey, callback) => {
     }else{
         data = local;
     }
-    callback(data);
+    callback( data );
 }
 
 /****************************
@@ -49,10 +49,11 @@ let manageData = () => {
 /****************************
 Initiate
 ****************************/
-readStore('gunServers', d => {
-    gunServers = JSON.parse(d);
-    console.log(gunServers['servers']);
+readStore('gunServers', (d) => {
+    const gunServers = d;
+    console.log(gunServers);
+    gun = Gun(gunServers);
     //
-    gun = Gun(gunServers.servers);
-    storage_input.value = JSON.stringify(gunServers);
+    storage_input.value = gunServers;
+    updateStore('gunServers',gunServers);
 })

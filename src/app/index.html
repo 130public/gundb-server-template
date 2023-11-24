@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div>
+    <h1>Your GunDB portal</h1>
+    <h2>Define your data stores</h2>
+    <form id="storage_form">
+      <label>Your list of relays</label>
+      <input id="storage_input" value="{'servers':['http://localhost:8080/gun'}" placeholder=""></input>
+      <button type="submit">Update relay list</button>
+    </form>
+    <h2>View and manage data</h2>
+    <form id="data_form">
+      <label>Enter you uid (First letter of your name + '_id')</label>
+      <input id="uid_input" value="k_id" placeholder=""></input>
+      <button type="submit">Get data</button>
+    </form>
+    <textarea id="data_input" placeholder="paste here!"></textarea>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+  <script src="./scripts.js"></script>
+  </body>
+</html>
